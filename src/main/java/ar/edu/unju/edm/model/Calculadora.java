@@ -5,34 +5,45 @@ import org.springframework.stereotype.Component;
 @Component
 public class Calculadora {
 
-	private int num1;
-	private int num2;
+	private float num1;
+	private float num2;
 	
 	
 	public Calculadora() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public int Sumar() {
-		int suma;
-		suma = num1 + num2;
-		return suma;
+	public float sumar() {
+		return num1+num2;
 	}
 	
-	public int getNum1() {
+	public float restar() {
+		return num1-num2;
+	}
+	
+	public float multiplicar() {
+		return num1*num2;
+	}
+	
+	public float dividir() {
+		return num1/num2;
+	}
+
+	public float getNum1() {
 		return num1;
 	}
 
-	public void setNum1(int num1) {
+	public void setNum1(float num1) {
 		this.num1 = num1;
 	}
 
-	public int getNum2() {
+	public float getNum2() {
 		return num2;
 	}
 
-	public void setNum2(int num2) {
+	public void setNum2(float num2) {
 		this.num2 = num2;
 	}
+	
 
 }

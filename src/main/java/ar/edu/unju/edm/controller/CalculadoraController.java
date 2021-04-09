@@ -15,23 +15,65 @@ public class CalculadoraController {
 	@Autowired
 	Calculadora unaCalculadora;
 	
-	@GetMapping({"/calculadora"})
-	public String cargaCalculadora (Model model) {
-		return "calculadora";
-	}
-	
-	@GetMapping("/ejecutarsuma")
-	public ModelAndView getCalculoSuma(@RequestParam (name = "num1") String num1 , @RequestParam (name = "num2") int num2){
-		
-		unaCalculadora.setNum1(Integer.valueOf(num1));
-		unaCalculadora.setNum2(num2);
-		
-		int resultadoSuma = unaCalculadora.Sumar();
-		
-		ModelAndView modelView = new ModelAndView("resultado");
-		modelView.addObject("resultadoSuma", resultadoSuma);
-		
-		return modelView;
+	@GetMapping("/calculadora")
+	public String getMenuCalculadora(Model model) {
+		return("calculadora");
 	}
 
+	@GetMapping("/calculoSuma")
+	public ModelAndView getCalculoSuma(@RequestParam (name = "num1") String num1 , @RequestParam (name = "num2") int num2){
+	  
+	  unaCalculadora.setNum1(Integer.valueOf(num1));
+	  unaCalculadora.setNum2(num2);
+	  
+	  float resultadoSuma = unaCalculadora.sumar();
+	  
+	  ModelAndView modelView = new ModelAndView("resultado");
+	  modelView.addObject("resultadoSuma", resultadoSuma);
+	  
+	  return modelView;
+	}
+
+	@GetMapping("/calculoResta")
+	public ModelAndView getCalculoResta(@RequestParam (name = "num1") String num1 , @RequestParam (name = "num2") int num2){
+	  
+	  unaCalculadora.setNum1(Integer.valueOf(num1));
+	  unaCalculadora.setNum2(num2);
+	  
+	  float resultadoResta = unaCalculadora.restar();
+	  
+	  ModelAndView modelView = new ModelAndView("resultado");
+	  modelView.addObject("resultadoResta", resultadoResta);
+	  
+	  return modelView;
+	}
+	
+	@GetMapping("/calculoMultiplicar")
+	public ModelAndView getCalculoMultiplicar(@RequestParam (name = "num1") String num1 , @RequestParam (name = "num2") int num2){
+	  
+	  unaCalculadora.setNum1(Integer.valueOf(num1));
+	  unaCalculadora.setNum2(num2);
+	  
+	  float resultadoMultiplic = unaCalculadora.multiplicar();
+	  
+	  ModelAndView modelView = new ModelAndView("resultado");
+	  modelView.addObject("resultadoMultiplic", resultadoMultiplic);
+	  
+	  return modelView;
+	}
+	
+	@GetMapping("/calculoDividir")
+	public ModelAndView getCalculoDividir(@RequestParam (name = "num1") String num1 , @RequestParam (name = "num2") int num2){
+	  
+	  unaCalculadora.setNum1(Integer.valueOf(num1));
+	  unaCalculadora.setNum2(num2);
+	  
+	  float resultadoDivision = unaCalculadora.dividir();
+	  
+	  ModelAndView modelView = new ModelAndView("resultado");
+	  modelView.addObject("resultadoMultiplic", resultadoDivision);
+	  
+	  return modelView;
+	}
+	
 }
