@@ -26,7 +26,15 @@ public class Calculadora {
 	}
 	
 	public float dividir() {
-		return num1/num2;
+		float result=0;
+		if (num2 == 0) {
+			System.out.println("ERROR, No se puede dividir entre 0");
+		}
+		else {
+			result=num1/num2;
+		}
+
+		return result;
 	}
 
 	public float getNum1() {

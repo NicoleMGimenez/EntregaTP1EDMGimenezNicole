@@ -71,7 +71,7 @@ public class CalculadoraController {
 	  float resultadoDivision = unaCalculadora.dividir();
 	  
 	  ModelAndView modelView = new ModelAndView("resultado");
-	  modelView.addObject("resultadoMultiplic", resultadoDivision);
+	  modelView.addObject("resultadoDivision", resultadoDivision);
 	  
 	  return modelView;
 	}
